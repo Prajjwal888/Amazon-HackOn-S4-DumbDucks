@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Amazon Review Predictor",
+  "version": "1.0",
+  "description": "Predicts ratings for Amazon reviews using Hugging Face Gradio API",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": [
+    "https://www.amazon.com/*",
+    "https://www.amazon.in/*",
+    "https://prajjwal888-review-classifier.hf.space/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Predict Review Ratings"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.amazon.com/*",
+        "https://www.amazon.in/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
