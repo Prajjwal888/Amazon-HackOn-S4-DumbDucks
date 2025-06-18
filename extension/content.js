@@ -9,7 +9,6 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     for (const review of reviews) {
       const rating = await getPredictedRating(review);
       injectRating(review, rating);
-      break;
     }
   }
 });
